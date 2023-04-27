@@ -79,24 +79,23 @@ public class RecipeDao implements GenericRecipeDao {
 
     @Override
     public Recipe fetchElement(Recipe recipe) {
-        String query = "SELECT * FROM recipe WHERE id = ?;";
-
+        String query = "SELECT r.id as 'id', r.name AS 'name', text, image, r.category AS 'category_id', c.name AS 'category_name' FROM recipe r INNER JOIN category c ON c.id = r.category WHERE r.id = ?;";
+        Recipe recipeFound = recipe;
         try (PreparedStatement pst = connection.prepareStatement(query)) {
             pst.setLong(1, recipe.getId());
             ResultSet result = pst.executeQuery();
-            System.out.println(pst);
 
             if (result.next()) {
-                recipe.setId(result.getLong("id"));
-                recipe.setName(result.getString("name"));
-                recipe.setImage(result.getString("image"));
-                recipe.setText(result.getString("text"));
-                recipe.setCategory(new Category(result.getLong("category_id"), result.getString("category_name")));
+                recipeFound.setId(result.getLong("id"));
+                recipeFound.setName(result.getString("name"));
+                recipeFound.setImage(result.getString("image"));
+                recipeFound.setText(result.getString("text"));
+                recipeFound.setCategory(new Category(result.getLong("category_id"), result.getString("category_name")));
             }
         } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
         }
-        return recipe;
+        return recipeFound;
     }
 
     @Override

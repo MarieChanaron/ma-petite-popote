@@ -24,16 +24,18 @@
         <c:import url="/content" />
 
         <c:forEach var="recipe" items="${recipes}">
-          <div class="col-4 my-2">
-            <div class="card overflow-hidden">
-              <div class="img-container overflow-hidden" style="background-image: url(<c:url value="${recipe.getImage()}" />)">
-              </div>
-              <div class="card-body">
-                <p class="card-text m-0">${recipe.getName()}</p>
-                <p class="card-text m-0 uppercase">${recipe.getCategory().getName()}</p>
-              </div>
+            <div class="col-4 my-2">
+              <a href="recipe?id=${recipe.getId()}" class="no-underline">
+                <div class="card overflow-hidden">
+                  <div class="img-container overflow-hidden" style="background-image: url(<c:url value="${recipe.getImage()}" />)">
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text m-0">${recipe.getName()}</p>
+                    <p class="card-text m-0 uppercase">${recipe.getCategory().getName()}</p>
+                  </div>
+                </div>
+              </a>
             </div>
-          </div>
         </c:forEach>
 
       </div>

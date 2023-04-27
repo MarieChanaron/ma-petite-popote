@@ -1,0 +1,12 @@
+#recipe {
+    padding-left: 239px;
+}
+
+.img-container {
+    width: 100%;
+    padding-top: 30%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+}
