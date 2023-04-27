@@ -39,9 +39,11 @@
                 </a>
             </section>
 
-            <section>
-                <a href="" class="text-center background-white block-center"> > Gérer mes recettes < </a>
-            </section>
+            <c:if test="${sessionScope.loggedIn}">
+                <section>
+                    <a href="administration" class="text-center background-white block-center"> > Gérer mes recettes < </a>
+                </section>
+            </c:if>
 
     </aside>
 

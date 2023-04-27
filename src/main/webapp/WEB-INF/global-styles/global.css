@@ -56,3 +56,8 @@ html {
 .fit-content {
     width: fit-content;
 }
+
+.uppercase {
+    text-transform: uppercase;
+    font-size: small;
+}

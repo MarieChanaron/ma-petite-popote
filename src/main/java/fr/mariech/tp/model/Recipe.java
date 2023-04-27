@@ -2,11 +2,19 @@ package fr.mariech.tp.model;
 
 public class Recipe {
 
-    Long id;
+    long id;
     String name;
     String text;
-    Long category;
+    Category category;
     String image;
+
+    public Recipe(long id, String name, String text, String image, Category category) {
+        this.id = id;
+        this.name = name;
+        this.text = text;
+        this.image = image;
+        this.category = category;
+    }
 
 
     public Long getId() {
@@ -33,11 +41,11 @@ public class Recipe {
         this.text = text;
     }
 
-    public Long getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(Long category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 

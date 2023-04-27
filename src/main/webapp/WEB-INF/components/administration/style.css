@@ -1,0 +1,21 @@
+#admin-recipes {
+    padding-left: 239px;
+}
+
+.card-body {
+    position: relative;
+}
+
+.card-body p:not(.card-text) {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+}
+
+.card-body p:not(.card-text) a {
+    color: #86786e;
+}
+
+.card-body p:not(.card-text) a:hover {
+    color: #6b5e53;
+}

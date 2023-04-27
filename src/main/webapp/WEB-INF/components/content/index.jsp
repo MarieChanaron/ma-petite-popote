@@ -21,59 +21,19 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-6 my-2">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-        </div>
+        <c:import url="/content" />
 
-        <div class="col-6 my-2">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <c:forEach var="recipe" items="${recipes}">
+          <div class="col-4 my-2">
+            <div class="card">
+              <img src="${recipe.getImage()}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text m-0">${recipe.getName()}</p>
+                <p class="card-text m-0 uppercase">${recipe.getCategory().getName()}</p>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="col-6 my-2">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-6 my-2">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-6 my-2">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-6 my-2">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-        </div>
+        </c:forEach>
 
       </div>
     </div>

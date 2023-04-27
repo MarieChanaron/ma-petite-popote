@@ -10,6 +10,8 @@ import java.util.List;
 
 public class UserDao implements UserGenericDao {
 
+    Connection connection = ConnectionManager.getInstance();
+
     @Override
     public Long add(User user) {
         return null;
@@ -24,7 +26,6 @@ public class UserDao implements UserGenericDao {
     public User fetchElement(User user) {
         String name = user.getName();
         String password = user.getPassword();
-        Connection connection = ConnectionManager.getInstance();
         String query = "SELECT * FROM user WHERE name = ? AND password = ?";
         User userFound = null;
 

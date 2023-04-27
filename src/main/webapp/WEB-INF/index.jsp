@@ -16,24 +16,13 @@
 
 <body>
 
-    <div class="page h-100">
+    <div class="page">
 
         <c:import url="./components/header/" />
 
         <c:import url="./components/panel/" />
 
         <c:import url="./components/content/" />
-
-        <%--div class="container-fluid">
-            <div class="row">
-                <div class="col-3 m-0 p-0">
-                    <c:import url="./components/panel/" />
-                </div>
-                <div class="col-9 m-0 p-0">
-                    <c:import url="./components/content/" />
-                </div>
-            </div>
-        </div--%>
 
     </div>
 
