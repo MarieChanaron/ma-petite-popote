@@ -4,6 +4,7 @@ import fr.mariech.tp.model.Category;
 import fr.mariech.tp.model.Recipe;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,9 +13,32 @@ public class RecipeDao implements GenericRecipeDao {
     Connection connection = ConnectionManager.getInstance();
 
     @Override
-    public Long add(Recipe entity) {
-        return null;
+    public long add(Recipe entity) {
+        long id = 0;
+        String name = entity.getName();
+        String text = entity.getText();
+        Long category = entity.getCategory().getId();
+        String image = entity.getImage();
+        String query = "INSERT INTO recipe (name, text, category, image) VALUES (?,?,?,?)";
+        try (PreparedStatement myPreparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+            myPreparedStatement.setString(1, name);
+            myPreparedStatement.setString(2, text);
+            myPreparedStatement.setLong(3, category);
+            myPreparedStatement.setString(4, image);
+            int rowsAffected = myPreparedStatement.executeUpdate();
+
+            if (rowsAffected == 1) {
+                ResultSet generatedKeys = myPreparedStatement.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    id = generatedKeys.getLong(1);
+                }
+            }
+        } catch (SQLException | NullPointerException error) {
+            error.printStackTrace();
+        }
+        return id;
     }
+
 
     @Override
     public List<Recipe> fetchAll() {

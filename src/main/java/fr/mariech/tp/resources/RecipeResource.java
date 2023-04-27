@@ -2,10 +2,7 @@ package fr.mariech.tp.resources;
 
 import fr.mariech.tp.model.Recipe;
 import fr.mariech.tp.service.RecipeService;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -16,6 +13,7 @@ public class RecipeResource {
 
     public final RecipeService recipeService = new RecipeService();
 
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response fetchAllRecipes() {
@@ -25,6 +23,7 @@ public class RecipeResource {
                 .entity(allRecipes)
                 .build();
     }
+
 
     @Path("/{id}")
     @GET
@@ -43,5 +42,24 @@ public class RecipeResource {
                 .build();
     }
 
+    @POST
+    @Produces(value = MediaType.APPLICATION_JSON)
+    @Consumes(value = MediaType.APPLICATION_JSON)
+    public Response createRecipe(RecipeDto dto) {
+
+        Recipe newRecipe = recipeService.insertRecipe(dto.getName(), dto.getText(), dto.getImage());
+
+        Response.Status status;
+        if (newRecipe.getId() != 0) {
+            status = Response.Status.CREATED;
+        } else {
+            status = Response.Status.BAD_REQUEST;
+        }
+
+        return Response
+                .status(status)
+                .entity(newRecipe)
+                .build();
+    }
 
 }

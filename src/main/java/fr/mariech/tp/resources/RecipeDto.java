@@ -10,6 +10,10 @@ public class RecipeDto {
     Category category;
     String image;
 
+
+    public RecipeDto() {
+    }
+
     public RecipeDto(long id, String name, String text, String image, Category category) {
         this.id = id;
         this.name = name;

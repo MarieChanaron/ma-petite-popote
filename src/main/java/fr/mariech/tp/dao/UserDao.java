@@ -13,8 +13,8 @@ public class UserDao implements UserGenericDao {
     Connection connection = ConnectionManager.getInstance();
 
     @Override
-    public Long add(User user) {
-        return null;
+    public long add(User user) {
+        return 0;
     }
 
     @Override

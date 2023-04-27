@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface GenericDao<T> {
 
-    public Long add(T entity);
+    public long add(T entity);
 
     public List<T> fetchAll();
 

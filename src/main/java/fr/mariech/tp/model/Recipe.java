@@ -15,6 +15,13 @@ public class Recipe {
         this.id = id;
     }
 
+    public Recipe(String name, String text, String image, Category category) {
+        this.name = name;
+        this.text = text;
+        this.image = image;
+        this.category = category;
+    }
+
     public Recipe(long id, String name, String text, String image, Category category) {
         this.id = id;
         this.name = name;
