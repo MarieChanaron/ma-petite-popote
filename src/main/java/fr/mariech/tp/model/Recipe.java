@@ -8,6 +8,13 @@ public class Recipe {
     Category category;
     String image;
 
+    public Recipe() {
+    }
+
+    public Recipe(long id) {
+        this.id = id;
+    }
+
     public Recipe(long id, String name, String text, String image, Category category) {
         this.id = id;
         this.name = name;

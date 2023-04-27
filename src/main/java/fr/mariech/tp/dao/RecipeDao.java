@@ -3,10 +3,7 @@ package fr.mariech.tp.dao;
 import fr.mariech.tp.model.Category;
 import fr.mariech.tp.model.Recipe;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,9 +52,27 @@ public class RecipeDao implements GenericRecipeDao {
         return allRecipes;
     }
 
+
     @Override
-    public Recipe fetchElement(Recipe entity) {
-        return null;
+    public Recipe fetchElement(Recipe recipe) {
+        String query = "SELECT * FROM recipe WHERE id = ?;";
+
+        try (PreparedStatement pst = connection.prepareStatement(query)) {
+            pst.setLong(1, recipe.getId());
+            ResultSet result = pst.executeQuery();
+            System.out.println(pst);
+
+            if (result.next()) {
+                recipe.setId(result.getLong("id"));
+                recipe.setName(result.getString("name"));
+                recipe.setImage(result.getString("image"));
+                recipe.setText(result.getString("text"));
+                recipe.setCategory(new Category(result.getLong("category_id"), result.getString("category_name")));
+            }
+        } catch (SQLException | NullPointerException e) {
+            e.printStackTrace();
+        }
+        return recipe;
     }
 
     @Override

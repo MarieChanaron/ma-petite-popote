@@ -13,4 +13,15 @@ public class RecipeService {
         List<Recipe> allRecipes = recipeDao.fetchAll();
         return allRecipes;
     }
+
+    public Recipe fetchById(long id) {
+        Recipe recipe = new Recipe(id);
+        Recipe recipeFound = recipeDao.fetchElement(recipe);
+        System.out.println(recipeFound);
+        recipe.setName(recipeFound.getName());
+        recipe.setCategory(recipeFound.getCategory());
+        recipe.setImage(recipeFound.getImage());
+        recipe.setText(recipeFound.getText());
+        return recipe;
+    }
 }
