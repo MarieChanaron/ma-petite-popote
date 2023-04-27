@@ -1,0 +1,16 @@
+aside {
+    background-color: lightgrey;
+    height: calc(100vh - 92px);
+    position: fixed;
+    left: 0;
+    top: 92px;
+}
+
+aside *,
+aside form * {
+    display: block;
+}
+
+aside section {
+    margin-bottom: 120px;
+}

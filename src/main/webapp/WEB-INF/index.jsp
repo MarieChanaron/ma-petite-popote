@@ -7,30 +7,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <%@include file="../import-styles.jsp"%> <!-- Bootstrap and Google Fonts -->
+    <%@include file="global-styles/import-styles.jsp"%> <!-- Bootstrap and Google Fonts -->
+    <style>
+        <%@include file="global-styles/global.css"%>
+    </style>
     <title>Ma Petite Popote | Accueil</title>
 </head>
 
 <body>
 
-    <div class="page">
-        <div class="container">
+    <div class="page h-100">
+
+        <c:import url="./components/header/" />
+
+        <c:import url="./components/panel/" />
+
+        <c:import url="./components/content/" />
+
+        <%--div class="container-fluid">
             <div class="row">
-                <c:import url="./components/header.jsp" />
-            </div>
-            <div class="row">
-                <div class="col">
-                    <c:import url="./components/panel.jsp" />
+                <div class="col-3 m-0 p-0">
+                    <c:import url="./components/panel/" />
                 </div>
-                <div class="col">
-                    <c:import url="./components/content.jsp" />
+                <div class="col-9 m-0 p-0">
+                    <c:import url="./components/content/" />
                 </div>
             </div>
-        </div>
+        </div--%>
+
     </div>
 
     <div id="footer">
-        <c:import url="./components/footer.jsp" />
+        <c:import url="./components/footer/" />
     </div>
 
 </body>
