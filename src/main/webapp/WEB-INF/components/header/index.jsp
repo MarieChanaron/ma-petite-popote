@@ -18,10 +18,12 @@
 
     <div class="container-fluid fixed-top" id="header">
         <div class="row py-3">
-            <div class="col-6 d-flex align-items-center">
-                <img src="../../../images/60.png" alt="logo">
-                <p id="website-name" class="m-0 ps-3">Ma Petite Popote</p>
-            </div>
+                <div class="col-6 d-flex align-items-center">
+                    <a href="index" class="no-underline">
+                        <img src="../../../images/60.png" alt="logo">
+                        <p id="website-name" class="m-0 ps-3">Ma Petite Popote</p>
+                    </a>
+                </div>
             <div class="col-6 d-flex align-items-center justify-content-end">
                 <a href="subscription">
                     <button type="submit" class="btn btn-outline-success ms-3">S'inscrire</button>

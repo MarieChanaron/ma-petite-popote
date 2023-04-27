@@ -16,9 +16,9 @@
 
 <body>
 
-<main id="connexion">
+<main id="subscription">
 
-    <h3 class="text-center mt-5">Connexion</h3>
+    <h3 class="text-center mt-5">Inscription</h3>
 
     <div class="container">
         <div class="row">
@@ -32,7 +32,7 @@
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary brown">Submit</button>
                 </form>
             </div>
         </div>

@@ -34,7 +34,7 @@
             </section>
 
             <section>
-                <a href="">
+                <a href="" class="no-underline">
                     <button class="btn btn-success block-center" type="submit">Recette aléatoire</button>
                 </a>
             </section>

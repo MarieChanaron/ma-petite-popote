@@ -22,7 +22,7 @@
 
   <c:import url="./components/panel/" />
 
-  <c:import url="./components/connexion-form/" />
+  <c:import url="./components/subscription-form/" />
 
 </div>
 

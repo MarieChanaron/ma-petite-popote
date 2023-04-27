@@ -16,3 +16,37 @@ html {
     width: fit-content;
     margin: auto;
 }
+
+.btn-success {
+    background-color: #f16c7a;
+    border: 1px solid #f16c7a;
+}
+
+.btn-success:hover {
+    background-color: #f16c7a;
+    border: 1px solid #f16c7a;
+}
+
+.btn-outline-success {
+    border: 1px solid #86786e;
+    color: #86786e;
+}
+
+.btn-outline-success:hover {
+    border: 1px solid #86786e;
+    color: white;
+    background-color: #86786e;
+}
+
+.btn-primary.brown {
+    background-color: #86786e;
+    border: 1px solid #86786e;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+.fit-content {
+    width: fit-content;
+}

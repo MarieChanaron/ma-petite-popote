@@ -16,7 +16,7 @@
 
 <body>
 
-  <main id="recipes">
+  <main id="recipes" class="my-5">
 
     <div class="container">
       <div class="row">
