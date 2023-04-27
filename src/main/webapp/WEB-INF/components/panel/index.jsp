@@ -40,7 +40,7 @@
             </section>
 
             <section>
-                <a href="" class="text-center"> > Gérer mes recettes < </a>
+                <a href="" class="text-center background-white block-center"> > Gérer mes recettes < </a>
             </section>
 
     </aside>
