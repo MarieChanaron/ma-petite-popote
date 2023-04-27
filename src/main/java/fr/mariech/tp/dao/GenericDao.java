@@ -1,5 +1,7 @@
 package fr.mariech.tp.dao;
 
+import fr.mariech.tp.model.User;
+
 import java.util.List;
 
 public interface GenericDao<T> {
@@ -8,9 +10,9 @@ public interface GenericDao<T> {
 
     public List<T> fetchAll();
 
-    public T fetchElement(int id);
+    T fetchElement(T entity);
 
-    public T updateElement(T entity);
+    public boolean updateElement(T entity);
 
     public boolean deleteElement(Long id);
 }

@@ -2,12 +2,16 @@ package fr.mariech.tp.dao;
 
 import fr.mariech.tp.model.User;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
-public class UserDao implements GenericDao {
+public class UserDao implements UserGenericDao {
 
     @Override
-    public Long add(Object entity) {
+    public Long add(User user) {
         return null;
     }
 
@@ -17,13 +21,33 @@ public class UserDao implements GenericDao {
     }
 
     @Override
-    public Object fetchElement(int id) {
-        return null;
+    public User fetchElement(User user) {
+        String name = user.getName();
+        String password = user.getPassword();
+        Connection connection = ConnectionManager.getInstance();
+        String query = "SELECT * FROM user WHERE name = ? AND password = ?";
+        User userFound = null;
+
+        try (PreparedStatement pst = connection.prepareStatement(query)) {
+            pst.setString(1, name);
+            pst.setString(2, password);
+            ResultSet result = pst.executeQuery();
+            if (result.next()) {
+                userFound = new User(
+                        result.getLong("id"),
+                        result.getString("name"),
+                        result.getString("password")
+                );
+            }
+        } catch (SQLException | NullPointerException e) {
+            e.printStackTrace();
+        }
+        return userFound;
     }
 
     @Override
-    public Object updateElement(Object entity) {
-        return null;
+    public boolean updateElement(User user) {
+        return true;
     }
 
     @Override

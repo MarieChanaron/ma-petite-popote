@@ -17,28 +17,34 @@ html {
     margin: auto;
 }
 
-.btn-success {
+.btn-plain {
+    padding: 8px 16px;
+    border-radius: 50px;
+    color: white;
     background-color: #f16c7a;
     border: 1px solid #f16c7a;
 }
 
-.btn-success:hover {
+.btn-plain:hover {
     background-color: #f16c7a;
     border: 1px solid #f16c7a;
 }
 
-.btn-outline-success {
+.btn-outline {
+    padding: 8px 16px;
+    border-radius: 50px;
     border: 1px solid #86786e;
     color: #86786e;
+    background-color: transparent;
 }
 
-.btn-outline-success:hover {
+.btn-outline:hover {
     border: 1px solid #86786e;
     color: white;
     background-color: #86786e;
 }
 
-.btn-primary.brown {
+.btn-plain.brown {
     background-color: #86786e;
     border: 1px solid #86786e;
 }

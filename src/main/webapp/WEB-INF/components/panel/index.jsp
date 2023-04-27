@@ -29,13 +29,13 @@
                     <div class="mb-3">
                         <input type="text" class="form-control" id="search" placeholder="Termes de recherche">
                     </div>
-                    <button type="submit" class="btn btn-success">Rechercher</button>
+                    <button type="submit" class="btn-outline">Rechercher</button>
                 </form>
             </section>
 
             <section>
                 <a href="" class="no-underline">
-                    <button class="btn btn-success block-center" type="submit">Recette aléatoire</button>
+                    <button class="btn-plain block-center" type="submit">Recette aléatoire</button>
                 </a>
             </section>
 

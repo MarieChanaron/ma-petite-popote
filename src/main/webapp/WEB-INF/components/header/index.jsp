@@ -25,12 +25,23 @@
                     </a>
                 </div>
             <div class="col-6 d-flex align-items-center justify-content-end">
-                <a href="subscription">
-                    <button type="submit" class="btn btn-outline-success ms-3">S'inscrire</button>
-                </a>
-                <a href="connexion">
-                    <button type="submit" class="btn btn-success ms-3">Se connecter</button>
-                </a>
+
+                <c:choose>
+                    <c:when test="${sessionScope.loggedIn}">
+                        <a href="logout">
+                            <button type="submit" class="btn-plain ms-3">Se déconnecter</button>
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="subscription">
+                            <button type="submit" class="btn-outline ms-3">S'inscrire</button>
+                        </a>
+                        <a href="connexion">
+                            <button type="submit" class="btn-plain ms-3">Se connecter</button>
+                        </a>
+                    </c:otherwise>
+                </c:choose>
+
             </div>
         </div>
     </div>
