@@ -61,3 +61,7 @@ html {
     text-transform: uppercase;
     font-size: small;
 }
+
+.overflow-hidden {
+    overflow: hidden;
+}
