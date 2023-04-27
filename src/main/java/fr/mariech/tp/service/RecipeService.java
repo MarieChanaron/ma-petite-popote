@@ -36,8 +36,8 @@ public class RecipeService {
     }
 
 
-    public boolean updateRecipe(long id, String title, String author, String content, long idCategory) {
-        Recipe recipe = new Recipe(id, title, author, content, new Category(idCategory));
+    public boolean updateRecipe(long id, String name, String text, String image, long idCategory) {
+        Recipe recipe = new Recipe(id, name, text, image, new Category(idCategory));
         return recipeDao.updateElement(recipe);
     }
 
