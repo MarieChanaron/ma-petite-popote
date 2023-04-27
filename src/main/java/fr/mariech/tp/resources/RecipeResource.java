@@ -7,6 +7,8 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 @Path("/recipes")
@@ -42,6 +44,7 @@ public class RecipeResource {
                 .entity(recipe)
                 .build();
     }
+
 
     @POST
     @Produces(value = MediaType.APPLICATION_JSON)
@@ -109,6 +112,26 @@ public class RecipeResource {
         return Response
                 .status(status)
                 .entity(responseBody)
+                .build();
+    }
+
+
+    @Path("/{id}")
+    @DELETE
+    @Consumes(value = MediaType.APPLICATION_JSON)
+    public Response deletePost(@PathParam("id") long id) {
+
+        boolean success = recipeService.deleteRecipe(id);
+
+        Response.Status status;
+        if (success) {
+            status = Response.Status.OK;
+        } else {
+            status = Response.Status.BAD_REQUEST;
+        }
+
+        return Response
+                .status(status)
                 .build();
     }
 

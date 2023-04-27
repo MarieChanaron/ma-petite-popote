@@ -14,5 +14,5 @@ public interface GenericDao<T> {
 
     public boolean updateElement(T entity);
 
-    public boolean deleteElement(Long id);
+    public boolean deleteElement(long id);
 }

@@ -119,8 +119,18 @@ public class RecipeDao implements GenericRecipeDao {
         return success;
     }
 
+
     @Override
-    public boolean deleteElement(Long id) {
-        return false;
+    public boolean deleteElement(long id) {
+        String query = "DELETE FROM recipe WHERE id = ?;";
+        boolean success = false;
+        try (PreparedStatement pst = connection.prepareStatement(query);) {
+            pst.setLong(1, id);
+            pst.executeUpdate();
+            success = true;
+        } catch (SQLException error) {
+            error.printStackTrace();
+        }
+        return success;
     }
 }

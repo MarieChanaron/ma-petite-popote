@@ -52,7 +52,7 @@ public class UserDao implements UserGenericDao {
     }
 
     @Override
-    public boolean deleteElement(Long id) {
+    public boolean deleteElement(long id) {
         return false;
     }
 }

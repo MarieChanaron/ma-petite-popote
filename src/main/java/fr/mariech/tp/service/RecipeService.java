@@ -38,8 +38,12 @@ public class RecipeService {
 
     public boolean updateRecipe(long id, String title, String author, String content, long idCategory) {
         Recipe recipe = new Recipe(id, title, author, content, new Category(idCategory));
-        System.out.println("RECIPE IN SERVICE");
-        System.out.println(recipe);
         return recipeDao.updateElement(recipe);
     }
+
+
+    public boolean deleteRecipe(long id) {
+        return recipeDao.deleteElement(id);
+    }
+
 }
