@@ -6,17 +6,21 @@
     position: relative;
 }
 
-.card-body p:not(.card-text) {
+.link {
+    color: #262a2e;
+}
+
+.icons {
     position: absolute;
     right: 16px;
     bottom: 16px;
 }
 
-.card-body p:not(.card-text) a {
+.icons a {
     color: #86786e;
 }
 
-.card-body p:not(.card-text) a:hover {
+.icons a:hover {
     color: #6b5e53;
 }
 
