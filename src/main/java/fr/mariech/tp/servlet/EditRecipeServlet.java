@@ -8,7 +8,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "EditRecipeServlet", value = "/administration/edit-recipe")
+@WebServlet(name = "EditRecipeServlet", value = "/edit-recipe")
 public class EditRecipeServlet extends HttpServlet {
 
     @Override

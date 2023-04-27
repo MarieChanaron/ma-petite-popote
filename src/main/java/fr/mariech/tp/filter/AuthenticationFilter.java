@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/administration/*")
+@WebFilter(urlPatterns = {"/administration/*", "/add-recipe", "/edit-recipe"})
 public class AuthenticationFilter extends HttpFilter {
 
     @Override
