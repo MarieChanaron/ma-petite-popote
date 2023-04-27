@@ -1,7 +1,5 @@
 aside {
     background-color: lightgrey;
-    /*background-image: url("../../../images/pexels-dee-dave-8329236.jpg");*/
-    background-size: cover;
     height: calc(100vh - 92px);
     position: fixed;
     left: 0;
@@ -16,14 +14,6 @@ aside form * {
 aside section {
     margin-bottom: 120px;
 }
-
-/*
-aside form input,
-aside form select {
-    border-color: black !important;
-}
-
- */
 
 .background-white {
     background-color: white;
