@@ -21,11 +21,13 @@ public class AuthenticationFilter extends HttpFilter {
         HttpServletResponse response = (HttpServletResponse) res;
 
         HttpSession session = request.getSession();
-        if (session != null && session.getAttribute("loggedIn").equals(true)) {
-            // Continue la chaine des filtres/navigations
-            chain.doFilter(req, res);
-        } else {
-            response.sendRedirect(request.getContextPath() + "/connexion");
+        if (session != null) {
+            if (session.getAttribute("loggedIn").equals(true)) {
+                // Continue la chaine des filtres/navigations
+                chain.doFilter(req, res);
+            } else {
+                response.sendRedirect(request.getContextPath() + "/connexion");
+            }
         }
     }
 }
