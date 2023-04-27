@@ -6,11 +6,11 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "ConnectionServlet", value = "/connexion")
-public class ConnectionServlet extends HttpServlet {
+@WebServlet(name = "SubscriptionServlet", value = "/subscription")
+public class SubscriptionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/subscription/").forward(request, response);
     }
 
     @Override

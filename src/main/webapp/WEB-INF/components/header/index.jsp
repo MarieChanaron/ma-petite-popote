@@ -23,8 +23,12 @@
                 <p id="website-name" class="m-0 ps-3">Ma Petite Popote</p>
             </div>
             <div class="col-6 d-flex align-items-center justify-content-end">
-                <button type="submit" class="btn btn-outline-success ms-3">S'inscrire</button>
-                <button type="submit" class="btn btn-success ms-3">Se connecter</button>
+                <a href="subscription">
+                    <button type="submit" class="btn btn-outline-success ms-3">S'inscrire</button>
+                </a>
+                <a href="connexion">
+                    <button type="submit" class="btn btn-success ms-3">Se connecter</button>
+                </a>
             </div>
         </div>
     </div>
