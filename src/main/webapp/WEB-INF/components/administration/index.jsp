@@ -19,7 +19,7 @@
 
 <main id="admin-recipes" class="my-5">
 
-  <a href="add-recipe" class="no-underline fit-content">
+  <a href="administration/add-recipe" class="no-underline fit-content">
     <button class="btn-plain brown block-center my-5" type="submit">Ajouter recette</button>
   </a>
 
