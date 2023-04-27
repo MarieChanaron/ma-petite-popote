@@ -23,7 +23,7 @@
   <div class="container">
     <div class="row">
       <div class="col-6 mx-auto my-5">
-        <form method="post" action="login">
+        <form method="post" action="add-recipe">
           <div class="mb-3">
             <label for="name" class="form-label">Nom</label>
             <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name">
@@ -33,12 +33,12 @@
             <input type="text" class="form-control" id="image" name="image" aria-describedby="emailHelp">
           </div>
           <div class="mb-3">
-            <label for="category" class="form-label">Catégorie</label>
+            <label for="category" class="form-label" name="category">Catégorie</label>
             <select class="form-select" aria-label="Default select example" id="category" name="category">
-              <option value="tout" selected>Toutes les catégories</option>
-              <option value="entree">Entrée</option>
-              <option value="plat">Plat</option>
-              <option value="dessert">Dessert</option>
+              <option value="4" selected>Toutes les catégories</option>
+              <option value="1">Entrée</option>
+              <option value="2">Plat</option>
+              <option value="3">Dessert</option>
             </select>
           </div>
           <div class="mb-3">

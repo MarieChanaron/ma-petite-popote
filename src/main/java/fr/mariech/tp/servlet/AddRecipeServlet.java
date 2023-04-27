@@ -1,5 +1,7 @@
 package fr.mariech.tp.servlet;
 
+import fr.mariech.tp.model.Category;
+import fr.mariech.tp.service.RecipeService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -15,6 +17,11 @@ public class AddRecipeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String name = request.getParameter("name");
+        String image = request.getParameter("image");
+        long categoryId = Long.parseLong(request.getParameter("category"));
+        String text = request.getParameter("content");
+        new RecipeService().insertRecipe(name, text, image, categoryId);
+        response.sendRedirect("/administration");
     }
 }
