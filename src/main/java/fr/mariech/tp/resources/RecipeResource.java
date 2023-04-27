@@ -1,5 +1,6 @@
 package fr.mariech.tp.resources;
 
+import fr.mariech.tp.model.Category;
 import fr.mariech.tp.model.Recipe;
 import fr.mariech.tp.service.RecipeService;
 import jakarta.ws.rs.*;
@@ -47,7 +48,13 @@ public class RecipeResource {
     @Consumes(value = MediaType.APPLICATION_JSON)
     public Response createRecipe(RecipeDto dto) {
 
-        Recipe newRecipe = recipeService.insertRecipe(dto.getName(), dto.getText(), dto.getImage());
+        long categoryId = 4; // Default value
+
+        if (dto.getCategory() != null) {
+            categoryId = dto.getCategory().getId();
+        }
+
+        Recipe newRecipe = recipeService.insertRecipe(dto.getName(), dto.getText(), dto.getImage(), categoryId);
 
         Response.Status status;
         if (newRecipe.getId() != 0) {
@@ -59,6 +66,49 @@ public class RecipeResource {
         return Response
                 .status(status)
                 .entity(newRecipe)
+                .build();
+    }
+
+
+    @Path("/{id}")
+    @PUT
+    @Produces(value = MediaType.APPLICATION_JSON)
+    @Consumes(value = MediaType.APPLICATION_JSON)
+    public Response amendPost(@PathParam("id") long recipeId, RecipeDto dto) {
+
+        long categoryId = 4; // Default value
+
+        if (dto.getCategory() != null) {
+            categoryId = dto.getCategory().getId();
+        }
+
+        Recipe recipeFound = recipeService.fetchById(recipeId);
+
+        Response.Status status;
+        Recipe responseBody;
+
+        // If post found : modify the post and send 200 OK
+        // If post not found = create the post and send 201 CREATED
+        if (recipeFound.getId() == 0) {
+            responseBody = recipeService.insertRecipe(dto.getName(), dto.getText(), dto.getImage(), categoryId);
+            if (responseBody.getId() != 0) {
+                status = Response.Status.CREATED;
+            } else {
+                status = Response.Status.BAD_REQUEST;
+            }
+        } else {
+            boolean success = recipeService.updateRecipe(recipeId, dto.getName(), dto.getText(), dto.getImage(), categoryId);
+            if (success) {
+                status = Response.Status.OK;
+            } else {
+                status = Response.Status.NOT_MODIFIED;
+            }
+            responseBody = recipeFound;
+        }
+
+        return Response
+                .status(status)
+                .entity(responseBody)
                 .build();
     }
 

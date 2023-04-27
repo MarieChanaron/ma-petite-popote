@@ -101,7 +101,22 @@ public class RecipeDao implements GenericRecipeDao {
 
     @Override
     public boolean updateElement(Recipe entity) {
-        return false;
+        boolean success = false;
+        String query = "UPDATE recipe " +
+                "SET recipe.name = ?, recipe.text = ?, recipe.image = ?, recipe.category = ? " +
+                "WHERE recipe.id = ?;";
+        try (PreparedStatement pst = connection.prepareStatement(query);) {
+            pst.setString(1, entity.getName());
+            pst.setString(2, entity.getText());
+            pst.setString(3, entity.getImage());
+            pst.setLong(4, entity.getCategory().getId());
+            pst.setLong(5, entity.getId());
+            pst.executeUpdate();
+            success = true;
+        } catch (SQLException error) {
+            error.printStackTrace();
+        }
+        return success;
     }
 
     @Override

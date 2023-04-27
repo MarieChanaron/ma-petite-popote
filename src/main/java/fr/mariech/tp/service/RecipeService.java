@@ -19,7 +19,6 @@ public class RecipeService {
     public Recipe fetchById(long id) {
         Recipe recipe = new Recipe(id);
         Recipe recipeFound = recipeDao.fetchElement(recipe);
-        System.out.println(recipeFound);
         recipe.setName(recipeFound.getName());
         recipe.setCategory(recipeFound.getCategory());
         recipe.setImage(recipeFound.getImage());
@@ -27,13 +26,6 @@ public class RecipeService {
         return recipe;
     }
 
-    public Recipe insertRecipe(String name, String text, String image) {
-        Category c = new Category(4L); // default
-        Recipe recipe = new Recipe(name, text, image, c);
-        long idRecipe = recipeDao.add(recipe);
-        recipe.setId(idRecipe);
-        return recipe;
-    }
 
     public Recipe insertRecipe(String name, String text, String image, long categoryId) {
         Category c = new Category(categoryId);
@@ -41,5 +33,13 @@ public class RecipeService {
         long idRecipe = recipeDao.add(recipe);
         recipe.setId(idRecipe);
         return recipe;
+    }
+
+
+    public boolean updateRecipe(long id, String title, String author, String content, long idCategory) {
+        Recipe recipe = new Recipe(id, title, author, content, new Category(idCategory));
+        System.out.println("RECIPE IN SERVICE");
+        System.out.println(recipe);
+        return recipeDao.updateElement(recipe);
     }
 }
